@@ -1,8 +1,11 @@
-# 🏆 StarkPay Hackathon Evidence Summary
+# 🏆 StarkPay Hackathon Evidence Summary - HONEST VERSION
 
 **Team:** StarkPay - ITAM  
-**Project:** StarkPay - Lightning Payments Made Simple  
+**Project:** StarkPay - Lightning Payments Made Simple (PROTOTIPO iOS)  
 **Repository:** https://github.com/DabtcAvila/starkpay-hackathon-2024  
+
+## 🚨 DECLARACIÓN DE HONESTIDAD
+**STARKPAY ES UN PROTOTIPO iOS EXCEPCIONAL - NO UNA APP BLOCKCHAIN FUNCIONAL**
 
 ## 📊 Evidence Status Overview
 
