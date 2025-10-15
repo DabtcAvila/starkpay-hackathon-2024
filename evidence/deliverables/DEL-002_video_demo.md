@@ -21,7 +21,7 @@ Se requiere crear un video demo profesional mostrando todas las funcionalidades 
 
 ##### 1. Introducción (30 segundos)
 - Logo animado StarkPay
-- "Kids Hop presenta..."
+- "StarkPay - ITAM presenta..."
 - Problema que resolvemos
 - **Script:** "Traditional crypto payments are complex. StarkPay makes them simple."
 

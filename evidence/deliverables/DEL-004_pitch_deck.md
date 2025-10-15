@@ -21,7 +21,7 @@ Se requiere crear un pitch deck profesional para StarkPay presentando la propues
 #### 1. Title Slide 🎯
 - **Logo StarkPay** + Lightning animation
 - **Tagline:** "Lightning payments made simple"
-- **Team:** Kids Hop
+- **Team:** StarkPay - ITAM
 - **Event:** Starknet Hackathon 2024
 
 #### 2. Problem Statement 😤
@@ -98,7 +98,7 @@ Se requiere crear un pitch deck profesional para StarkPay presentando la propues
 - **2026:** DeFi integration, yield farming
 
 #### 12. Team 👥
-- **David Villafuerte** - Tech Lead & iOS Developer
+- **StarkPay Team Lead - ITAM** - Tech Lead & iOS Developer
   - 5+ years iOS development
   - Previous fintech experience
   - Swift/blockchain expert

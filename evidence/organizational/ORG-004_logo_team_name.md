@@ -6,10 +6,10 @@
 
 ## Evidencia
 
-El equipo Kids Hop tiene un logo distintivo y nombre oficial establecido.
+El equipo StarkPay - ITAM tiene un logo distintivo y nombre oficial establecido.
 
 ### Información del Equipo
-- **Nombre:** Kids Hop
+- **Nombre:** StarkPay - ITAM
 - **Logo:** Lightning bolt minimalista con gradiente
 - **Colores:** Gradiente azul a violeta (#007AFF a #5856D6)
 - **Concepto:** Representa velocidad, innovación y pagos lightning

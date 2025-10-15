@@ -1,6 +1,6 @@
 # 🏆 StarkPay Hackathon Evidence Summary
 
-**Team:** Kids Hop  
+**Team:** StarkPay - ITAM  
 **Project:** StarkPay - Lightning Payments Made Simple  
 **Repository:** https://github.com/DabtcAvila/starkpay-hackathon-2024  
 
@@ -175,10 +175,10 @@ TOTAL:                  950+ points
 
 ## 📞 Team Contact Information
 
-- **Tech Lead:** David Villafuerte
+- **Tech Lead:** StarkPay Team - ITAM
 - **Repository:** https://github.com/DabtcAvila/starkpay-hackathon-2024
 - **Evidence Folder:** `/evidence` in main repository
-- **Team:** Kids Hop
+- **Team:** StarkPay - ITAM
 - **Project:** StarkPay
 
 ## 🔗 Key Links

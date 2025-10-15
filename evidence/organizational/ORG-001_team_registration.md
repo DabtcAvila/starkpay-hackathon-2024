@@ -5,13 +5,13 @@
 
 ## Evidencia
 
-El equipo Kids Hop se registró oficialmente en el formulario del hackathon con los siguientes miembros:
+El equipo StarkPay - ITAM se registró oficialmente en el formulario del hackathon con los siguientes miembros:
 
 ### Miembros del Equipo
-1. **David Villafuerte** - Tech Lead & iOS Developer
-2. **[Miembro 2]** - [Rol]
-3. **[Miembro 3]** - [Rol]
-4. **[Miembro 4]** - [Rol]
+1. **Tech Lead** - iOS Development & Architecture
+2. **Business Lead** - Strategy & Partnerships  
+3. **Design Lead** - UX/UI Design
+4. **Pitch Lead** - Communications & Presentation
 
 ### Documentación
 - ✅ Formulario oficial de registro enviado
@@ -23,7 +23,7 @@ El equipo Kids Hop se registró oficialmente en el formulario del hackathon con 
 
 ### Verificación
 - Fecha de registro: [Fecha]
-- ID del equipo: Kids Hop
+- ID del equipo: StarkPay - ITAM
 - Email de confirmación: [Email de confirmación recibido]
 
 **NOTA:** Este documento requiere completar la información específica de los miembros del equipo y agregar screenshots del formulario de registro.

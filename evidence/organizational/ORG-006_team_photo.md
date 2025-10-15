@@ -5,7 +5,7 @@
 
 ## Evidencia
 
-El equipo Kids Hop necesita una foto oficial del equipo o avatar representativo.
+El equipo StarkPay - ITAM necesita una foto oficial del equipo o avatar representativo.
 
 ### Opciones de Foto del Equipo
 
@@ -25,7 +25,7 @@ El equipo Kids Hop necesita una foto oficial del equipo o avatar representativo.
 - **Individual:** Fotos de cada miembro
 - **Composición:** Grid 2x2 con logo central
 - **Background:** Gradiente StarkPay
-- **Texto:** "Kids Hop - Starknet Hackathon 2024"
+- **Texto:** "StarkPay - ITAM - Starknet Hackathon 2024"
 
 ### Especificaciones Técnicas
 - **Resolución:** Mínimo 1920x1080
@@ -50,7 +50,7 @@ Si no es posible reunión presencial, crear avatar digital:
 
 ```
 🧑‍💻 David (Tech) | 💼 Business Lead
-                  Kids Hop
+                  StarkPay - ITAM
 ⚡ Lightning payments made simple
       🎨 Design Lead | 🎤 Pitch Lead
 ```

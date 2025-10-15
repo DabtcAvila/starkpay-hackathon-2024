@@ -105,9 +105,9 @@ Criterios bonus para puntuación adicional.
 
 ## 📞 Contact & Support
 
-- **Tech Lead:** David Villafuerte
+- **Tech Lead:** StarkPay Team Lead - ITAM
 - **Repository:** https://github.com/DabtcAvila/starkpay-hackathon-2024
-- **Team:** Kids Hop
+- **Team:** StarkPay - ITAM
 
 ---
 

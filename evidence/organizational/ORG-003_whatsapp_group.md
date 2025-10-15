@@ -5,7 +5,7 @@
 
 ## Evidencia
 
-Todos los miembros del equipo Kids Hop están activos en el grupo oficial de WhatsApp del hackathon.
+Todos los miembros del equipo StarkPay - ITAM están activos en el grupo oficial de WhatsApp del hackathon.
 
 ### Información del Grupo
 - **Nombre del grupo:** Starknet Hackathon [Año]
@@ -14,7 +14,7 @@ Todos los miembros del equipo Kids Hop están activos en el grupo oficial de Wha
 
 ### Miembros del Equipo en el Grupo
 
-1. **David Villafuerte**
+1. **StarkPay Team Lead - ITAM**
    - Número: [Número de teléfono]
    - Estado: ✅ Activo en grupo
    - Último mensaje: [Fecha]

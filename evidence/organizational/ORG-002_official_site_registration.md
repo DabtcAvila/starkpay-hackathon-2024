@@ -5,17 +5,17 @@
 
 ## Evidencia
 
-El equipo Kids Hop está registrado en el sitio oficial del Starknet Hackathon.
+El equipo StarkPay - ITAM está registrado en el sitio oficial del Starknet Hackathon.
 
 ### Información de Registro
-- **Nombre del equipo:** Kids Hop
+- **Nombre del equipo:** StarkPay - ITAM
 - **Plataforma:** Starknet Hackathon Official Site
 - **URL del perfil:** [URL del perfil del equipo en el sitio oficial]
 
 ### Miembros Registrados
 Todos los miembros del equipo están confirmados en la plataforma oficial:
 
-1. **David Villafuerte** - Tech Lead & iOS Developer
+1. **StarkPay Team Lead - ITAM** - Tech Lead & iOS Developer
    - Perfil: [URL del perfil]
    - Estado: ✅ Verificado
    

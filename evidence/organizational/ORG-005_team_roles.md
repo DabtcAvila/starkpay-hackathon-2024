@@ -6,12 +6,12 @@
 
 ## Evidencia
 
-El equipo Kids Hop tiene roles claramente definidos para cada área del proyecto.
+El equipo StarkPay - ITAM tiene roles claramente definidos para cada área del proyecto.
 
 ### Estructura del Equipo
 
 #### 🛠️ Tech Lead & iOS Developer
-**David Villafuerte**
+**StarkPay Team Lead - ITAM**
 - Arquitectura iOS (SwiftUI/UIKit)
 - Integración Starknet
 - Smart contracts
