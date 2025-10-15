@@ -1,0 +1,14 @@
+Criterio de Evaluación,Puntos Máximos,Puntos Obtenidos,Evidencia GitHub,Descripción
+Mobile Experience,25,23,https://github.com/DabtcAvila/starkpay-hackathon-2024/tree/main/StarkPayiOS,Native iOS SwiftUI app con navegación completa y responsive design
+User Interface Design,20,19,"https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/StarkPayiOS/StarkPayiOS/StarkPayiOSApp.swift#L20-L201","Instagram/Venmo style interface, tabs Pay/Activity/You, clean minimalist design"
+Premium Animations,15,15,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/StarkPayiOS/StarkPayiOS/SplashView.swift,"Lightning bolt animado con glow effects, gradientes premium, auto-dismiss"
+App Icon & Branding,10,9,https://github.com/DabtcAvila/starkpay-hackathon-2024/tree/main/StarkPayiOS/StarkPayiOS/Assets.xcassets/AppIcon.appiconset,Ícono minimalista lightning bolt en todos los tamaños iOS requeridos
+Core Payment Functionality,20,16,"https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/StarkPayiOS/StarkPayiOS/StarkPayiOSApp.swift#L288-L417","Send/Request payment modals con validación de formularios, balance updates"
+Transaction History,10,10,"https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/StarkPayiOS/StarkPayiOS/StarkPayiOSApp.swift#L114-L145",Instagram-style transaction cards con íconos circulares y timestamps relativos
+Innovation Concept,20,17,"https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/explicacion.md#L1-L25",Web2 UX ocultando complejidad Web3 - pagos crypto como Venmo familiar
+Technical Implementation,15,13,"https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/StarkPayiOS/StarkPayiOS/StarkPayiOSApp.swift#L424-L477","MVVM pattern, ObservableObject, clean Swift code architecture"
+Documentation Quality,10,10,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/README.md,"README completo, explicacion.md técnica, FEATURES.md honesto"
+StarkNet Integration,15,6,"https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/explicacion.md#L75-L95","Smart contract addresses documentados, Account Abstraction mencionado, pero implementación simulada"
+Demo Readiness,10,10,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/INSTRUCTIONS.md,App funcionando en simulador con instrucciones claras para evaluación
+Code Quality,10,9,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/StarkPayiOS/StarkPayiOS/StarkPayiOSApp.swift,"Código limpio, bien estructurado, comments apropiados, SwiftUI best practices"
+TOTAL,170,148,,87% - Excelente demo móvil con honestidad sobre limitaciones blockchain
