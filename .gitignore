@@ -1,0 +1,13 @@
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
+build/
+DerivedData/
+
+# macOS
+.DS_Store
+
+# Personal files
+*.log
+*.tmp
