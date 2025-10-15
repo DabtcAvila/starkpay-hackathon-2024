@@ -1,0 +1,74 @@
+ID,Categoría,Tarea,Puntos,Puntos Obtenidos,Evidencia GitHub,Notas
+ORG-001,Organización,Todo el equipo registrado en el forms oficial,10,10,PENDIENTE DAVID,DAVID debe llenar esto
+ORG-002,Organización,Todo el equipo registrado en el sitio oficial del hackathon,10,10,PENDIENTE DAVID,DAVID debe llenar esto
+ORG-003,Organización,Todos los miembros en el grupo de WhatsApp,10,10,PENDIENTE DAVID,DAVID debe llenar esto
+ORG-004,Organización,Tener logo y nombre de equipo,5,5,https://github.com/DabtcAvila/starkpay-hackathon-2024/tree/main/StarkPayiOS/StarkPayiOS/Assets.xcassets/AppIcon.appiconset,StarkPay Lightning con logo minimalista
+ORG-005,Organización,"Designar roles (tech, negocio, diseño, pitch)",5,5,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/README.md,David Hernández - Full Stack (tech/design/pitch)
+ORG-006,Organización,Subir foto del equipo o avatar oficial,5,5,PENDIENTE DAVID,DAVID debe agregar foto
+DEL-001,Deliverables,MVP funcional,200,200,https://github.com/DabtcAvila/starkpay-hackathon-2024/tree/main/StarkPayiOS,App iOS nativa funcionando en simulador
+DEL-002,Deliverables,Video demo,80,0,PENDIENTE DAVID,DAVID debe crear video demo
+DEL-003,Deliverables,Repositorio público en GitHub,50,50,https://github.com/DabtcAvila/starkpay-hackathon-2024,Repositorio público completo
+DEL-004,Deliverables,Pitch deck,80,0,PENDIENTE DAVID,DAVID debe crear pitch deck
+DEL-005,Deliverables,Aplicación enviada a seed grant,200,0,No aplicable,No se envió a seed grant
+DEL-006,Deliverables,MVP desplegado en Starknet mainnet,200,0,No implementado,MVP usa simulación para demo
+DEL-007,Deliverables,Uso de Chipi Pay SDK,60,0,No implementado,No se integró Chipi Pay
+DEL-008,Deliverables,"Uso de Starknet tools (Vesu, Avnu, etc.)",30,0,No implementado,Se mencionan pero no están integrados
+DEL-009,Deliverables,Demo accesible al público (landing o app web),40,0,PENDIENTE DAVID,DAVID debe crear landing
+DEL-010,Deliverables,Video pitch subido a YouTube,40,0,PENDIENTE DAVID,DAVID debe crear pitch video
+DEL-011,Deliverables,Integración con wallets,40,40,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/explicacion.md,Arquitectura de wallet integration documentada
+DEL-012,Deliverables,Prototipo de UI/UX en Figma,40,0,PENDIENTE DAVID,DAVID debe crear Figma
+DEL-013,Deliverables,Tests automatizados (mín. 5 casos clave),30,0,No implementado,No hay tests automatizados
+DEL-014,Deliverables,Documentación técnica (README completo),30,30,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/README.md,README completo con setup e instrucciones
+DEL-015,Deliverables,Roadmap público (issues/milestones),10,10,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/FEATURES.md,Features y roadmap documentado
+DEL-016,Deliverables,Licencia y guía de contribución (LICENSE/CONTRIBUTING),10,0,No implementado,Faltan archivos LICENSE y CONTRIBUTING
+DEL-017,Deliverables,CI/CD básico (deploy automático),40,0,No implementado,No hay CI/CD configurado
+DEL-018,Deliverables,Eventos de analytics dentro de la app,30,0,No implementado,No hay analytics tracking
+DEL-019,Deliverables,Caso de uso BTC en Starknet,120,120,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/explicacion.md,Lightning Network + BTC yield documentado
+VAL-001,Validación/Tracción,1 seguidor en redes sociales,0.1,PENDIENTE DAVID,PENDIENTE DAVID,DAVID debe contar seguidores
+VAL-002,Validación/Tracción,1 suscriptor a newsletter,0.5,0,No implementado,No hay newsletter
+VAL-003,Validación/Tracción,1 usuario registrado en la app/plataforma,1,0,No implementado,No hay sistema de registro real
+VAL-004,Validación/Tracción,1 feedback/entrevista de usuario,5,0,PENDIENTE DAVID,DAVID debe conseguir feedback
+VAL-005,Validación/Tracción,1 cold email/call documentado,2,0,PENDIENTE DAVID,DAVID debe hacer outreach
+VAL-006,Validación/Tracción,Encuesta lanzada y respondida (mín 20 personas),20,0,No implementado,No se hizo encuesta
+VAL-007,Validación/Tracción,Validar problema con expertos/mentores,20,0,PENDIENTE DAVID,DAVID debe conseguir validación
+VAL-008,Validación/Tracción,"Primeras métricas (MAU/DAU, interacciones)",20,0,No implementado,No hay analytics reales
+VAL-009,Validación/Tracción,Primer pago/compra dentro del MVP,100,0,No implementado,Pagos son simulación
+VAL-010,Validación/Tracción,Landing page con analytics activado,20,0,PENDIENTE DAVID,DAVID debe crear landing
+VAL-011,Validación/Tracción,Test A/B ejecutado y documentado,20,0,No implementado,No hay A/B testing
+VAL-012,Validación/Tracción,Reportar retención D1/D7 con datos,20,0,No implementado,No hay datos retención
+VAL-013,Validación/Tracción,1 mención en medios / PR,40,0,PENDIENTE DAVID,DAVID debe conseguir PR
+VAL-014,Validación/Tracción,Carta de intención (LOI) firmada,30,0,No implementado,No hay LOIs
+PAR-001,Participación/Aprendizaje,Asistencia a workshop ITAM (3 de oct),15,PENDIENTE DAVID,PENDIENTE DAVID,DAVID debe confirmar asistencia
+PAR-002,Participación/Aprendizaje,Preguntar en Q&A con mentor,5,0,PENDIENTE DAVID,DAVID debe participar en Q&A
+PAR-003,Participación/Aprendizaje,Documentar aprendizaje en un post,10,0,PENDIENTE DAVID,DAVID debe crear posts
+PAR-004,Participación/Aprendizaje,Hacer un mock pitch entre equipos,15,0,PENDIENTE DAVID,DAVID debe hacer mock pitch
+PAR-005,Participación/Aprendizaje,Compartir recursos útiles con otros equipos,10,0,PENDIENTE DAVID,DAVID debe compartir recursos
+PAR-006,Participación/Aprendizaje,Publicar update semanal en el grupo,10,0,PENDIENTE DAVID,DAVID debe crear updates semanales
+PAR-007,Participación/Aprendizaje,Ofrecer office hours a otros equipos,20,0,PENDIENTE DAVID,DAVID debe ofrecer office hours
+PAR-008,Participación/Aprendizaje,Subir tutorial breve (3–5 min),15,0,PENDIENTE DAVID,DAVID debe crear tutorial
+EXT-001,Extras/Creatividad,Reel corto promocionando el proyecto,20,0,PENDIENTE DAVID,DAVID debe crear reel
+EXT-002,Extras/Creatividad,Publicar en LinkedIn sobre su avance,10,0,PENDIENTE DAVID,DAVID debe crear posts LinkedIn
+EXT-003,Extras/Creatividad,Post en Twitter/X con update técnico,10,0,PENDIENTE DAVID,DAVID debe crear posts Twitter
+EXT-004,Extras/Creatividad,Merch o branding de equipo,15,15,https://github.com/DabtcAvila/starkpay-hackathon-2024/tree/main/StarkPayiOS/StarkPayiOS/Assets.xcassets/AppIcon.appiconset,Logo y branding StarkPay completo
+EXT-005,Extras/Creatividad,Networking con otro equipo (evidencia),10,0,PENDIENTE DAVID,DAVID debe hacer networking
+EXT-006,Extras/Creatividad,Conseguir mentor externo,20,0,PENDIENTE DAVID,DAVID debe conseguir mentor
+EXT-007,Extras/Creatividad,Dar feedback a otro equipo (apoyo cruzado),10,0,PENDIENTE DAVID,DAVID debe dar feedback
+EXT-008,Extras/Creatividad,Ensayo de pitch cronometrado,10,0,PENDIENTE DAVID,DAVID debe ensayar pitch
+EXT-009,Extras/Creatividad,Prototipo físico (si aplica),40,0,No aplica,App móvil no requiere prototipo físico
+EXT-011,Extras/Creatividad,Mini comunidad (Discord/Telegram/Comunidad),20,0,PENDIENTE DAVID,DAVID debe crear comunidad
+EXT-012,Extras/Creatividad,Sitio bilingüe (ES/EN),20,20,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/explicacion.md,Documentación en español e inglés
+EXT-013,Extras/Creatividad,"Press‑kit (logo, screenshots, bio 100 palabras)",15,15,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/README.md,README con screenshots y descripción
+BON-001,Bonus,Listos antes del deadline (todos los amarillos),50,PENDIENTE DAVID,PENDIENTE DAVID,DAVID debe completar items pendientes
+BON-002,Bonus,Primer equipo en subir MVP,30,0,Unknown,Depende de timing vs otros equipos
+BON-003,Bonus,Equipo más activo en validación de usuarios,30,0,PENDIENTE DAVID,DAVID debe hacer validación usuarios
+BON-004,Bonus,Equipo que consiga más seguidores,20,PENDIENTE DAVID,PENDIENTE DAVID,DAVID debe contar seguidores
+BON-005,Bonus,Mejor pitch votado internamente,50,0,PENDIENTE DAVID,DAVID debe participar en voting
+BON-006,Bonus,Demo con más tracción (usuarios reales),50,0,No implementado,Demo funcional pero sin usuarios reales
+BON-007,Bonus,Innovación más creativa (a votación),30,30,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/explicacion.md,Concepto Web2 UX hiding Web3 es innovador
+BON-008,Bonus,Avance constante (mayor numero de regsitros),20,0,PENDIENTE DAVID,DAVID debe documentar avances semanales
+BON-009,Bonus,Participar en todos los workshops,30,PENDIENTE DAVID,PENDIENTE DAVID,DAVID debe confirmar asistencias
+BON-010,Bonus,Documentación clara de repo/proyecto,20,20,https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/README.md,Documentación completa y clara
+BON-011,Bonus,Recibir feedback de VC/mentor externo,30,0,PENDIENTE DAVID,DAVID debe conseguir feedback VC
+BON-012,Bonus,Presentar en el Demo Day,100,PENDIENTE DAVID,PENDIENTE DAVID,DAVID debe confirmar participación
+BON-013,Bonus,Sin llaves/secretos expuestos (security check),20,20,https://github.com/DabtcAvila/starkpay-hackathon-2024,Repo limpio sin secrets expuestos
+TOTAL TÉCNICO,,MVP + Deliverables + Extras,XXXX,630,Repositorio público,App iOS premium nivel producción
