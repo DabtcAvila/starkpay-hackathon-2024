@@ -811,12 +811,19 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            EnhancedProfileView()
+            ABTestDashboardView()
                 .tabItem {
-                    Image(systemName: selectedTab == 2 ? "person.circle.fill" : "person.circle")
-                    Text("You")
+                    Image(systemName: selectedTab == 2 ? "chart.bar.fill" : "chart.bar")
+                    Text("A/B Test")
                 }
                 .tag(2)
+            
+            EnhancedProfileView()
+                .tabItem {
+                    Image(systemName: selectedTab == 3 ? "person.circle.fill" : "person.circle")
+                    Text("You")
+                }
+                .tag(3)
         }
         .accentColor(.black)
         .onChange(of: selectedTab) { _, _ in
@@ -959,7 +966,9 @@ struct PayView: View {
             }
         }
         .sheet(isPresented: $showSendSheet) {
-            SendSheet().environmentObject(viewModel)
+            SendSheet()
+                .environmentObject(viewModel)
+                .environmentObject(UserManager())
         }
         .sheet(isPresented: $showRequestSheet) {
             RequestSheet().environmentObject(viewModel)
@@ -1669,6 +1678,7 @@ struct MenuRow: View {
 
 struct SendSheet: View {
     @EnvironmentObject var viewModel: StarkPayViewModel
+    @EnvironmentObject var userManager: UserManager
     @State private var recipient = ""
     @State private var amount = ""
     @State private var note = ""
@@ -1731,31 +1741,13 @@ struct SendSheet: View {
                         .transition(.opacity.combined(with: .scale))
                     }
                     
-                    Button(action: processPayment) {
-                        HStack(spacing: 12) {
-                            if isProcessing {
-                                PremiumLoadingView(size: 20, color: .white)
-                            }
-                            
-                            Text(isProcessing ? "Processing..." : "Pay $\(amount.isEmpty ? "0.00" : amount)")
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                        }
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            LinearGradient(
-                                colors: isProcessing ? [.gray, .gray.opacity(0.8)] : [.black, .gray.opacity(0.8)],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
-                        .cornerRadius(12)
-                        .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
-                    }
-                    .buttonStyle(PremiumButtonStyle(color: .black, isLoading: isProcessing))
-                    .disabled(recipient.isEmpty || amount.isEmpty || isProcessing)
+                    // A/B Test Payment Button
+                    ABTestPaymentButton(
+                        amount: amount,
+                        isProcessing: isProcessing,
+                        userId: userManager.currentUser?.id ?? "anonymous",
+                        onTap: processPayment
+                    )
                     .padding()
                     
                     Spacer()
