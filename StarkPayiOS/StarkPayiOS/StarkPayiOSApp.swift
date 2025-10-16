@@ -746,6 +746,7 @@ class HapticManager {
 struct StarkPayiOSApp: App {
     @StateObject private var viewModel = StarkPayViewModel()
     @StateObject private var authManager = BiometricAuthManager()
+    @StateObject private var userManager = UserManager()
     @State private var isShowingSplash = true
     @State private var shouldShowAuth = false
     
@@ -760,7 +761,12 @@ struct StarkPayiOSApp: App {
                             shouldShowAuth = true
                         }
                     }
+            } else if !userManager.authState.isAuthenticated {
+                // Show user registration/login flow
+                UserRegistrationFlow()
+                    .environmentObject(userManager)
             } else if !authManager.isAuthenticated || shouldShowAuth {
+                // Show biometric authentication for existing users
                 BiometricAuthView {
                     shouldShowAuth = false
                 }
@@ -770,9 +776,11 @@ struct StarkPayiOSApp: App {
                     authManager.logout()
                 }
             } else {
+                // Show main app content
                 ContentView()
                     .environmentObject(viewModel)
                     .environmentObject(authManager)
+                    .environmentObject(userManager)
                     .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                         // Re-authenticate when app comes to foreground
                         authManager.logout()
@@ -803,7 +811,7 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            ProfileView()
+            EnhancedProfileView()
                 .tabItem {
                     Image(systemName: selectedTab == 2 ? "person.circle.fill" : "person.circle")
                     Text("You")
