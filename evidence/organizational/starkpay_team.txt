@@ -1,0 +1,42 @@
+                    ⚡ STARKPAY - ITAM ⚡
+               STARKNET RE{SOLVE} HACKATHON 2024
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                         ⚡ STARKPAY - ITAM ⚡                        │
+│                  STARKNET RE{SOLVE} HACKATHON 2024                  │
+│                                                                     │
+│  ┌─────────────┐              ⚡              ┌─────────────┐       │
+│  │   💻 TECH   │          LIGHTNING           │ 💼 BUSINESS │       │
+│  │    LEAD     │         PAYMENTS             │    LEAD     │       │
+│  │             │        MADE SIMPLE           │             │       │
+│  └─────────────┘              ⚡              └─────────────┘       │
+│                                                                     │
+│                         ⚡⚡⚡⚡⚡⚡⚡                               │
+│                  "Building the Future Together"                     │
+│                         ⚡⚡⚡⚡⚡⚡⚡                               │
+│                                                                     │
+│  ┌─────────────┐              ⚡              ┌─────────────┐       │
+│  │  🎨 DESIGN  │         INNOVATION           │  🎤 PITCH   │       │
+│  │    LEAD     │           & TECH             │    LEAD     │       │
+│  │             │         EXCELLENCE           │             │       │
+│  └─────────────┘              ⚡              └─────────────┘       │
+│                                                                     │
+│           Instituto Tecnológico Autónomo de México                  │
+│              "Lightning payments as simple as texting"             │
+└─────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════
+
+👥 TEAM: StarkPay - ITAM
+🏫 INSTITUTION: Instituto Tecnológico Autónomo de México
+🎯 MISSION: Lightning payments made simple
+🏆 EVENT: Starknet Re{Solve} Hackathon 2024
+
+💻 TECH LEAD: iOS Development & Blockchain Architecture
+💼 BUSINESS LEAD: Strategy & Market Analysis  
+🎨 DESIGN LEAD: UX/UI & Visual Identity
+🎤 PITCH LEAD: Presentation & Communications
+
+⚡ "Building the future of mobile payments, one lightning bolt at a time" ⚡
+
+═══════════════════════════════════════════════════════════════════════
