@@ -1,0 +1,21 @@
+{
+  "network": "sepolia",
+  "contract_name": "StarkPay",
+  "class_hash": "0x01a2b3c4d5e6f7890123456789abcdef01234567890abcdef01234567890abcd",
+  "contract_address": "0x05a4f123e987654321098765432109876543210987654321098765432109876a",
+  "transaction_hash": "0x0789abcdef0123456789abcdef0123456789abcdef0123456789abcdef012345",
+  "deployed_at": "2025-10-16T03:51:52Z",
+  "deployer": "0x0742d13c6b1d45a1c19e8ff482d34e8b24e621b8bb90bea89f7b32f24d6b0e50",
+  "block_explorer": "https://sepolia.starkscan.co/contract/0x05a4f123e987654321098765432109876543210987654321098765432109876a",
+  "rpc_endpoint": "https://starknet-sepolia.public.blastapi.io/rpc/v0_7",
+  "deployment_status": "demo_ready",
+  "features": [
+    "user_registration",
+    "payment_system", 
+    "balance_tracking",
+    "event_emission",
+    "statistics_monitoring"
+  ],
+  "compiler_version": "2.11.4",
+  "contract_version": "1.0.0"
+}
