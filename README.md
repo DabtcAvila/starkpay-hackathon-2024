@@ -13,7 +13,7 @@
 
 **For Judges:** Want to see the app? Jump to [`QUICK_START.md`](QUICK_START.md)
 
-**For Developers:** Full technical details in [`docs/`](docs/)
+**For Developers:** Full technical details in [`docs/`](docs/) | **Roadmap:** [`ROADMAP.md`](ROADMAP.md)
 
 ---
 
@@ -93,6 +93,7 @@ StarkPay is a **native iOS application** that reimagines crypto payments through
 ```
 StarkPay-Hackathon-Submission/
 ├── README.md                    # This file
+├── ROADMAP.md                   # Public development roadmap
 ├── QUICK_START.md              # Run the app in 2 minutes
 ├── StarkPayiOS/                # Complete iOS Xcode project
 ├── docs/                       # Technical documentation
@@ -109,6 +110,7 @@ StarkPay-Hackathon-Submission/
 2. **Innovation:** Experience how Web2 UX can hide Web3 complexity  
 3. **Vision:** Understand how this approach solves crypto adoption barriers
 4. **Execution:** Professional code quality and comprehensive documentation
+5. **Roadmap:** Review our [public development roadmap](ROADMAP.md) and [GitHub project board](https://github.com/DabtcAvila/starkpay-hackathon-2024/projects)
 
 **Time required:** 10 minutes to see the full demo and understand the vision
 
