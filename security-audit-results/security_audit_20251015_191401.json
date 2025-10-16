@@ -1,0 +1,47 @@
+{
+  "audit_info": {
+    "timestamp": "2025-10-16T01:14:01Z",
+    "project_root": "/Users/davicho/App Hack/StarkPay-Hackathon-Submission",
+    "scanner_version": "1.0.0",
+    "compliance_standard": "BON-013"
+  },
+  "results": {
+    "secret_scan": {},
+    "ios_security": {
+      "issues": 1,
+      "checks": 7,
+      "status": "FAIL"
+    },
+    "dependencies": {
+      "vulnerabilities": 0,
+      "status": "PASS"
+    },
+    "code_quality": {
+      "issues": 1,
+      "checks": 5,
+      "status": "FAIL"
+    },
+    "network_security": {
+      "issues": 0,
+      "checks": 2,
+      "status": "PASS"
+    },
+    "binary_analysis": {
+      "security_score": 1,
+      "max_score": 5,
+      "percentage": 20,
+      "status": "FAIL"
+    },
+    "compliance_score": 30
+  },
+  "summary": {
+    "total_issues": 0,
+    "critical_issues": 0,
+    "high_issues": 0,
+    "medium_issues": 0,
+    "low_issues": 0,
+    "passed_checks": 0,
+    "failed_checks": 0,
+    "compliance_status": "POOR"
+  }
+}

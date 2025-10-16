@@ -10,17 +10,78 @@
 		2C8B7E1A2B7F3D8A00123456 /* StarkPayiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E192B7F3D8A00123456 /* StarkPayiOSApp.swift */; };
 		2C8B7E1E2B7F3D8B00123456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8B7E1D2B7F3D8B00123456 /* Assets.xcassets */; };
 		2C8B7E1F2B7F3D8B00123456 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E1C2B7F3D8B00123456 /* SplashView.swift */; };
+		
+		/* Unit Test Files */
+		2C8B7E302B7F3E8A00123456 /* BiometricAuthManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E2F2B7F3E8A00123456 /* BiometricAuthManagerTests.swift */; };
+		2C8B7E312B7F3E8A00123456 /* StarkPayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E302B7F3E8A00123456 /* StarkPayViewModelTests.swift */; };
+		2C8B7E322B7F3E8A00123456 /* HapticManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E312B7F3E8A00123456 /* HapticManagerTests.swift */; };
+		2C8B7E332B7F3E8A00123456 /* MockDataFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E322B7F3E8A00123456 /* MockDataFramework.swift */; };
+		2C8B7E342B7F3E8A00123456 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E332B7F3E8A00123456 /* TestHelpers.swift */; };
+		
+		/* UI Test Files */
+		2C8B7E402B7F3F8A00123456 /* AuthenticationFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E3F2B7F3F8A00123456 /* AuthenticationFlowTests.swift */; };
+		2C8B7E412B7F3F8A00123456 /* PaymentFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E402B7F3F8A00123456 /* PaymentFlowTests.swift */; };
+		2C8B7E422B7F3F8A00123456 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E412B7F3F8A00123456 /* PerformanceTests.swift */; };
+		2C8B7E432B7F3F8A00123456 /* SecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B7E422B7F3F8A00123456 /* SecurityTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2C8B7E2C2B7F3D8B00123456 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C8B7E0E2B7F3D8A00123456 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C8B7E152B7F3D8A00123456;
+			remoteInfo = StarkPayiOS;
+		};
+		2C8B7E362B7F3D8B00123456 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C8B7E0E2B7F3D8A00123456 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C8B7E152B7F3D8A00123456;
+			remoteInfo = StarkPayiOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2C8B7E162B7F3D8A00123456 /* StarkPayiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarkPayiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8B7E192B7F3D8A00123456 /* StarkPayiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarkPayiOSApp.swift; sourceTree = "<group>"; };
 		2C8B7E1C2B7F3D8B00123456 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2C8B7E1D2B7F3D8B00123456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		
+		/* Test Targets */
+		2C8B7E2B2B7F3D8B00123456 /* StarkPayiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarkPayiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C8B7E352B7F3D8B00123456 /* StarkPayiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarkPayiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		
+		/* Unit Test Files */
+		2C8B7E2F2B7F3E8A00123456 /* BiometricAuthManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthManagerTests.swift; sourceTree = "<group>"; };
+		2C8B7E302B7F3E8A00123456 /* StarkPayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarkPayViewModelTests.swift; sourceTree = "<group>"; };
+		2C8B7E312B7F3E8A00123456 /* HapticManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManagerTests.swift; sourceTree = "<group>"; };
+		2C8B7E322B7F3E8A00123456 /* MockDataFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataFramework.swift; sourceTree = "<group>"; };
+		2C8B7E332B7F3E8A00123456 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		
+		/* UI Test Files */
+		2C8B7E3F2B7F3F8A00123456 /* AuthenticationFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFlowTests.swift; sourceTree = "<group>"; };
+		2C8B7E402B7F3F8A00123456 /* PaymentFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentFlowTests.swift; sourceTree = "<group>"; };
+		2C8B7E412B7F3F8A00123456 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
+		2C8B7E422B7F3F8A00123456 /* SecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2C8B7E132B7F3D8A00123456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C8B7E282B7F3D8B00123456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C8B7E322B7F3D8B00123456 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -34,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				2C8B7E182B7F3D8A00123456 /* StarkPayiOS */,
+				2C8B7E2E2B7F3D8B00123456 /* StarkPayiOSTests */,
+				2C8B7E382B7F3D8B00123456 /* StarkPayiOSUITests */,
 				2C8B7E172B7F3D8A00123456 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -42,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				2C8B7E162B7F3D8A00123456 /* StarkPayiOS.app */,
+				2C8B7E2B2B7F3D8B00123456 /* StarkPayiOSTests.xctest */,
+				2C8B7E352B7F3D8B00123456 /* StarkPayiOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +119,85 @@
 				2C8B7E1D2B7F3D8B00123456 /* Assets.xcassets */,
 			);
 			path = StarkPayiOS;
+			sourceTree = "<group>";
+		};
+		2C8B7E2E2B7F3D8B00123456 /* StarkPayiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B7E502B7F3D8B00123456 /* Unit Tests */,
+				2C8B7E512B7F3D8B00123456 /* Mocks */,
+				2C8B7E522B7F3D8B00123456 /* Helpers */,
+			);
+			path = StarkPayiOSTests;
+			sourceTree = "<group>";
+		};
+		2C8B7E502B7F3D8B00123456 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B7E2F2B7F3E8A00123456 /* BiometricAuthManagerTests.swift */,
+				2C8B7E302B7F3E8A00123456 /* StarkPayViewModelTests.swift */,
+				2C8B7E312B7F3E8A00123456 /* HapticManagerTests.swift */,
+			);
+			path = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		2C8B7E512B7F3D8B00123456 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B7E322B7F3E8A00123456 /* MockDataFramework.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2C8B7E522B7F3D8B00123456 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B7E332B7F3E8A00123456 /* TestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2C8B7E382B7F3D8B00123456 /* StarkPayiOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B7E532B7F3D8B00123456 /* Authentication */,
+				2C8B7E542B7F3D8B00123456 /* Payment Flows */,
+				2C8B7E552B7F3D8B00123456 /* Performance */,
+				2C8B7E562B7F3D8B00123456 /* Security */,
+			);
+			path = StarkPayiOSUITests;
+			sourceTree = "<group>";
+		};
+		2C8B7E532B7F3D8B00123456 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B7E3F2B7F3F8A00123456 /* AuthenticationFlowTests.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		2C8B7E542B7F3D8B00123456 /* Payment Flows */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B7E402B7F3F8A00123456 /* PaymentFlowTests.swift */,
+			);
+			path = "Payment Flows";
+			sourceTree = "<group>";
+		};
+		2C8B7E552B7F3D8B00123456 /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B7E412B7F3F8A00123456 /* PerformanceTests.swift */,
+			);
+			path = Performance;
+			sourceTree = "<group>";
+		};
+		2C8B7E562B7F3D8B00123456 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				2C8B7E422B7F3F8A00123456 /* SecurityTests.swift */,
+			);
+			path = Security;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -76,18 +220,63 @@
 			productReference = 2C8B7E162B7F3D8A00123456 /* StarkPayiOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2C8B7E2A2B7F3D8B00123456 /* StarkPayiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C8B7E422B7F3D8B00123456 /* Build configuration list for PBXNativeTarget "StarkPayiOSTests" */;
+			buildPhases = (
+				2C8B7E272B7F3D8B00123456 /* Sources */,
+				2C8B7E282B7F3D8B00123456 /* Frameworks */,
+				2C8B7E292B7F3D8B00123456 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C8B7E2D2B7F3D8B00123456 /* PBXTargetDependency */,
+			);
+			name = StarkPayiOSTests;
+			productName = StarkPayiOSTests;
+			productReference = 2C8B7E2B2B7F3D8B00123456 /* StarkPayiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2C8B7E342B7F3D8B00123456 /* StarkPayiOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C8B7E452B7F3D8B00123456 /* Build configuration list for PBXNativeTarget "StarkPayiOSUITests" */;
+			buildPhases = (
+				2C8B7E312B7F3D8B00123456 /* Sources */,
+				2C8B7E322B7F3D8B00123456 /* Frameworks */,
+				2C8B7E332B7F3D8B00123456 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C8B7E372B7F3D8B00123456 /* PBXTargetDependency */,
+			);
+			name = StarkPayiOSUITests;
+			productName = StarkPayiOSUITests;
+			productReference = 2C8B7E352B7F3D8B00123456 /* StarkPayiOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2C8B7E0E2B7F3D8A00123456 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = "StarkPay";
 				TargetAttributes = {
 					2C8B7E152B7F3D8A00123456 = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					2C8B7E2A2B7F3D8B00123456 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 2C8B7E152B7F3D8A00123456;
+					};
+					2C8B7E342B7F3D8B00123456 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 2C8B7E152B7F3D8A00123456;
 					};
 				};
 			};
@@ -105,6 +294,8 @@
 			projectRoot = "";
 			targets = (
 				2C8B7E152B7F3D8A00123456 /* StarkPayiOS */,
+				2C8B7E2A2B7F3D8B00123456 /* StarkPayiOSTests */,
+				2C8B7E342B7F3D8B00123456 /* StarkPayiOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -115,6 +306,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C8B7E1E2B7F3D8B00123456 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C8B7E292B7F3D8B00123456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C8B7E332B7F3D8B00123456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +335,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2C8B7E272B7F3D8B00123456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C8B7E302B7F3E8A00123456 /* BiometricAuthManagerTests.swift in Sources */,
+				2C8B7E312B7F3E8A00123456 /* StarkPayViewModelTests.swift in Sources */,
+				2C8B7E322B7F3E8A00123456 /* HapticManagerTests.swift in Sources */,
+				2C8B7E332B7F3E8A00123456 /* MockDataFramework.swift in Sources */,
+				2C8B7E342B7F3E8A00123456 /* TestHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C8B7E312B7F3D8B00123456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C8B7E402B7F3F8A00123456 /* AuthenticationFlowTests.swift in Sources */,
+				2C8B7E412B7F3F8A00123456 /* PaymentFlowTests.swift in Sources */,
+				2C8B7E422B7F3F8A00123456 /* PerformanceTests.swift in Sources */,
+				2C8B7E432B7F3F8A00123456 /* SecurityTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C8B7E2D2B7F3D8B00123456 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C8B7E152B7F3D8A00123456 /* StarkPayiOS */;
+			targetProxy = 2C8B7E2C2B7F3D8B00123456 /* PBXContainerItemProxy */;
+		};
+		2C8B7E372B7F3D8B00123456 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C8B7E152B7F3D8A00123456 /* StarkPayiOS */;
+			targetProxy = 2C8B7E362B7F3D8B00123456 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2C8B7E222B7F3D8B00123456 /* Debug */ = {
@@ -309,6 +550,84 @@
 			};
 			name = Release;
 		};
+		2C8B7E412B7F3D8B00123456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "4NG8VAJFZL";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.starkpay.ios.StarkPayiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarkPayiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StarkPayiOS";
+			};
+			name = Debug;
+		};
+		2C8B7E422B7F3D8B00123456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "4NG8VAJFZL";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.starkpay.ios.StarkPayiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarkPayiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StarkPayiOS";
+			};
+			name = Release;
+		};
+		2C8B7E452B7F3D8B00123456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "4NG8VAJFZL";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.starkpay.ios.StarkPayiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StarkPayiOS;
+			};
+			name = Debug;
+		};
+		2C8B7E462B7F3D8B00123456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "4NG8VAJFZL";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.starkpay.ios.StarkPayiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StarkPayiOS;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -326,6 +645,24 @@
 			buildConfigurations = (
 				2C8B7E252B7F3D8B00123456 /* Debug */,
 				2C8B7E262B7F3D8B00123456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C8B7E422B7F3D8B00123456 /* Build configuration list for PBXNativeTarget "StarkPayiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C8B7E412B7F3D8B00123456 /* Debug */,
+				2C8B7E422B7F3D8B00123456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C8B7E452B7F3D8B00123456 /* Build configuration list for PBXNativeTarget "StarkPayiOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C8B7E452B7F3D8B00123456 /* Debug */,
+				2C8B7E462B7F3D8B00123456 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

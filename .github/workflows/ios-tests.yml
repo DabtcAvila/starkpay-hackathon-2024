@@ -1,0 +1,457 @@
+name: iOS Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'StarkPayiOS/**'
+      - '.github/workflows/ios-tests.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'StarkPayiOS/**'
+      - '.github/workflows/ios-tests.yml'
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'Type of tests to run'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - unit
+          - ui
+          - performance
+          - security
+
+env:
+  XCODE_VERSION: '15.0'
+  IOS_SIMULATOR_DEVICE: 'iPhone 15 Pro'
+  IOS_VERSION: '17.0'
+
+jobs:
+  # Unit Tests - Fast execution, run on every push
+  unit-tests:
+    name: Unit Tests
+    runs-on: macos-14
+    timeout-minutes: 30
+    if: github.event.inputs.test_type == 'all' || github.event.inputs.test_type == 'unit' || github.event.inputs.test_type == ''
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ env.XCODE_VERSION }}
+    
+    - name: Cache derived data
+      uses: actions/cache@v3
+      with:
+        path: StarkPayiOS/DerivedData
+        key: ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-unit-${{ hashFiles('StarkPayiOS/**/*.swift', 'StarkPayiOS/**/*.pbxproj') }}
+        restore-keys: |
+          ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-unit-
+          ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-
+    
+    - name: List available simulators
+      run: xcrun simctl list devices available
+    
+    - name: Boot iOS Simulator
+      run: |
+        xcrun simctl boot "${{ env.IOS_SIMULATOR_DEVICE }}" || true
+        xcrun simctl bootstatus "${{ env.IOS_SIMULATOR_DEVICE }}"
+    
+    - name: Run Unit Tests
+      working-directory: StarkPayiOS
+      run: |
+        chmod +x Scripts/run-tests.sh
+        ./Scripts/run-tests.sh --unit-only --device "${{ env.IOS_SIMULATOR_DEVICE }}"
+    
+    - name: Upload unit test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: unit-test-results
+        path: |
+          StarkPayiOS/TestReports/
+          StarkPayiOS/DerivedData/Logs/
+        retention-days: 30
+    
+    - name: Publish unit test results
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: Unit Tests Results
+        path: StarkPayiOS/TestReports/TestResults/*.junit
+        reporter: java-junit
+        fail-on-error: false
+
+  # UI Tests - Slower execution, comprehensive UI testing
+  ui-tests:
+    name: UI Tests
+    runs-on: macos-14
+    timeout-minutes: 60
+    if: github.event.inputs.test_type == 'all' || github.event.inputs.test_type == 'ui' || github.event.inputs.test_type == ''
+    
+    strategy:
+      matrix:
+        device: ['iPhone 15 Pro', 'iPhone 14', 'iPad Pro (12.9-inch) (6th generation)']
+        include:
+          - device: 'iPhone 15 Pro'
+            os: '17.0'
+          - device: 'iPhone 14'
+            os: '16.4'
+          - device: 'iPad Pro (12.9-inch) (6th generation)'
+            os: '17.0'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ env.XCODE_VERSION }}
+    
+    - name: Cache derived data
+      uses: actions/cache@v3
+      with:
+        path: StarkPayiOS/DerivedData
+        key: ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-ui-${{ matrix.device }}-${{ hashFiles('StarkPayiOS/**/*.swift', 'StarkPayiOS/**/*.pbxproj') }}
+        restore-keys: |
+          ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-ui-
+          ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-
+    
+    - name: Boot iOS Simulator
+      run: |
+        xcrun simctl boot "${{ matrix.device }}" || true
+        xcrun simctl bootstatus "${{ matrix.device }}"
+        # Wait for simulator to be ready
+        sleep 30
+    
+    - name: Run UI Tests
+      working-directory: StarkPayiOS
+      run: |
+        chmod +x Scripts/run-tests.sh
+        ./Scripts/run-tests.sh --ui-only --device "${{ matrix.device }}"
+    
+    - name: Upload UI test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: ui-test-results-${{ matrix.device }}
+        path: |
+          StarkPayiOS/TestReports/
+          StarkPayiOS/DerivedData/Logs/
+        retention-days: 30
+    
+    - name: Upload UI test screenshots
+      uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+        name: ui-test-screenshots-${{ matrix.device }}
+        path: |
+          ~/Library/Developer/Xcode/DerivedData/**/Logs/Test/Attachments/
+        retention-days: 7
+
+  # Performance Tests - Run on specific triggers
+  performance-tests:
+    name: Performance Tests
+    runs-on: macos-14
+    timeout-minutes: 45
+    if: github.event.inputs.test_type == 'all' || github.event.inputs.test_type == 'performance'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ env.XCODE_VERSION }}
+    
+    - name: Cache derived data
+      uses: actions/cache@v3
+      with:
+        path: StarkPayiOS/DerivedData
+        key: ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-perf-${{ hashFiles('StarkPayiOS/**/*.swift', 'StarkPayiOS/**/*.pbxproj') }}
+        restore-keys: |
+          ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-perf-
+          ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-
+    
+    - name: Boot iOS Simulator
+      run: |
+        xcrun simctl boot "${{ env.IOS_SIMULATOR_DEVICE }}" || true
+        xcrun simctl bootstatus "${{ env.IOS_SIMULATOR_DEVICE }}"
+        sleep 30
+    
+    - name: Run Performance Tests
+      working-directory: StarkPayiOS
+      run: |
+        chmod +x Scripts/run-tests.sh
+        ./Scripts/run-tests.sh --performance-only --device "${{ env.IOS_SIMULATOR_DEVICE }}"
+    
+    - name: Upload performance test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: performance-test-results
+        path: |
+          StarkPayiOS/TestReports/
+        retention-days: 30
+    
+    - name: Create performance report comment
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const path = './StarkPayiOS/TestReports/test_summary.md';
+          
+          if (fs.existsSync(path)) {
+            const summary = fs.readFileSync(path, 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## Performance Test Results\n\n${summary}`
+            });
+          }
+
+  # Security Tests - Critical for production
+  security-tests:
+    name: Security Tests
+    runs-on: macos-14
+    timeout-minutes: 45
+    if: github.event.inputs.test_type == 'all' || github.event.inputs.test_type == 'security'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ env.XCODE_VERSION }}
+    
+    - name: Cache derived data
+      uses: actions/cache@v3
+      with:
+        path: StarkPayiOS/DerivedData
+        key: ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-security-${{ hashFiles('StarkPayiOS/**/*.swift', 'StarkPayiOS/**/*.pbxproj') }}
+        restore-keys: |
+          ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-security-
+          ${{ runner.os }}-xcode-${{ env.XCODE_VERSION }}-
+    
+    - name: Boot iOS Simulator
+      run: |
+        xcrun simctl boot "${{ env.IOS_SIMULATOR_DEVICE }}" || true
+        xcrun simctl bootstatus "${{ env.IOS_SIMULATOR_DEVICE }}"
+        sleep 30
+    
+    - name: Run Security Tests
+      working-directory: StarkPayiOS
+      run: |
+        chmod +x Scripts/run-tests.sh
+        ./Scripts/run-tests.sh --security-only --device "${{ env.IOS_SIMULATOR_DEVICE }}"
+    
+    - name: Upload security test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: security-test-results
+        path: |
+          StarkPayiOS/TestReports/
+        retention-days: 90
+    
+    - name: Security test failure notification
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number || 1,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '🚨 **Security Tests Failed** 🚨\n\nCritical security tests have failed. Please review the security test results before merging.'
+          });
+
+  # Code Coverage Analysis
+  coverage:
+    name: Code Coverage
+    runs-on: macos-14
+    timeout-minutes: 30
+    needs: [unit-tests]
+    if: github.event.inputs.test_type == 'all' || github.event.inputs.test_type == '' || github.event.inputs.test_type == 'unit'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ env.XCODE_VERSION }}
+    
+    - name: Download unit test results
+      uses: actions/download-artifact@v3
+      with:
+        name: unit-test-results
+        path: StarkPayiOS/TestReports/
+    
+    - name: Generate detailed coverage report
+      working-directory: StarkPayiOS
+      run: |
+        if [ -f "TestReports/coverage.json" ]; then
+          # Parse coverage data
+          coverage_percentage=$(cat TestReports/coverage.txt | grep -E "^[[:space:]]*[0-9]+\.[0-9]+%" | tail -1 | awk '{print $1}' | sed 's/%//')
+          
+          echo "COVERAGE_PERCENTAGE=$coverage_percentage" >> $GITHUB_ENV
+          
+          # Create coverage badge
+          if (( $(echo "$coverage_percentage >= 80" | bc -l) )); then
+            echo "COVERAGE_COLOR=brightgreen" >> $GITHUB_ENV
+          elif (( $(echo "$coverage_percentage >= 60" | bc -l) )); then
+            echo "COVERAGE_COLOR=yellow" >> $GITHUB_ENV
+          else
+            echo "COVERAGE_COLOR=red" >> $GITHUB_ENV
+          fi
+        fi
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        files: ./StarkPayiOS/TestReports/coverage.json
+        flags: ios,unittests
+        name: starkpay-ios-coverage
+        fail_ci_if_error: false
+    
+    - name: Coverage comment on PR
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const coverage = process.env.COVERAGE_PERCENTAGE;
+          const color = process.env.COVERAGE_COLOR;
+          
+          if (coverage) {
+            const body = `## Code Coverage Report
+            
+            ![Coverage](https://img.shields.io/badge/Coverage-${coverage}%25-${color})
+            
+            **Coverage**: ${coverage}%
+            
+            ${coverage >= 80 ? '✅' : coverage >= 60 ? '⚠️' : '❌'} Code coverage is ${coverage >= 80 ? 'excellent' : coverage >= 60 ? 'acceptable' : 'below recommended threshold (80%)'}`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+          }
+
+  # Test Summary and Notifications
+  test-summary:
+    name: Test Summary
+    runs-on: macos-14
+    needs: [unit-tests, ui-tests, performance-tests, security-tests]
+    if: always()
+    
+    steps:
+    - name: Download all test results
+      uses: actions/download-artifact@v3
+      with:
+        path: test-results/
+    
+    - name: Create combined test summary
+      run: |
+        echo "# StarkPay iOS Test Suite Results" > test_summary.md
+        echo "" >> test_summary.md
+        echo "**Workflow:** ${{ github.workflow }}" >> test_summary.md
+        echo "**Trigger:** ${{ github.event_name }}" >> test_summary.md
+        echo "**Commit:** ${{ github.sha }}" >> test_summary.md
+        echo "**Date:** $(date)" >> test_summary.md
+        echo "" >> test_summary.md
+        
+        # Check job results
+        echo "## Test Results Summary" >> test_summary.md
+        echo "" >> test_summary.md
+        
+        if [ "${{ needs.unit-tests.result }}" == "success" ]; then
+          echo "✅ **Unit Tests**: PASSED" >> test_summary.md
+        else
+          echo "❌ **Unit Tests**: FAILED" >> test_summary.md
+        fi
+        
+        if [ "${{ needs.ui-tests.result }}" == "success" ]; then
+          echo "✅ **UI Tests**: PASSED" >> test_summary.md
+        elif [ "${{ needs.ui-tests.result }}" == "skipped" ]; then
+          echo "⏭️ **UI Tests**: SKIPPED" >> test_summary.md
+        else
+          echo "❌ **UI Tests**: FAILED" >> test_summary.md
+        fi
+        
+        if [ "${{ needs.performance-tests.result }}" == "success" ]; then
+          echo "✅ **Performance Tests**: PASSED" >> test_summary.md
+        elif [ "${{ needs.performance-tests.result }}" == "skipped" ]; then
+          echo "⏭️ **Performance Tests**: SKIPPED" >> test_summary.md
+        else
+          echo "❌ **Performance Tests**: FAILED" >> test_summary.md
+        fi
+        
+        if [ "${{ needs.security-tests.result }}" == "success" ]; then
+          echo "✅ **Security Tests**: PASSED" >> test_summary.md
+        elif [ "${{ needs.security-tests.result }}" == "skipped" ]; then
+          echo "⏭️ **Security Tests**: SKIPPED" >> test_summary.md
+        else
+          echo "❌ **Security Tests**: FAILED" >> test_summary.md
+        fi
+        
+        echo "" >> test_summary.md
+        echo "## Artifacts" >> test_summary.md
+        echo "" >> test_summary.md
+        echo "Test results and logs are available in the workflow artifacts." >> test_summary.md
+        
+        cat test_summary.md
+    
+    - name: Upload combined summary
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-summary
+        path: test_summary.md
+        retention-days: 90
+    
+    - name: Notify on failure
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const title = `🚨 iOS Test Suite Failed - ${context.workflow} #${context.runNumber}`;
+          const body = `
+          The iOS test suite has failed for commit ${context.sha}.
+          
+          **Failed Jobs:**
+          - Unit Tests: ${{ needs.unit-tests.result }}
+          - UI Tests: ${{ needs.ui-tests.result }}
+          - Performance Tests: ${{ needs.performance-tests.result }}
+          - Security Tests: ${{ needs.security-tests.result }}
+          
+          [View Workflow Run](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})
+          `;
+          
+          // Create issue for main/develop branch failures
+          if (context.ref === 'refs/heads/main' || context.ref === 'refs/heads/develop') {
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['bug', 'ci-failure', 'ios']
+            });
+          }

@@ -1,13 +1,238 @@
+# StarkPay Security-First .gitignore
+# BON-013 Compliance: Protecting Sensitive Information
+
+# =============================================================================
+# 🔐 SECURITY CRITICAL FILES - NEVER COMMIT THESE
+# =============================================================================
+
+# API Keys, Tokens, and Credentials
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+api_key*
+secret_key*
+private_key*
+*_token*
+*credentials*
+auth_token*
+access_token*
+refresh_token*
+
+# Environment and Configuration Files
+.env
+.env.*
+config.json
+secrets.json
+secrets.yaml
+secrets.yml
+local.properties
+application-local.*
+
+# Cryptocurrency and Wallet Files
+wallet.dat
+*.wallet
+mnemonic*
+seed_phrase*
+private_keys*
+*.priv
+
+# Database and Connection Strings
+database.db
+*.sqlite3
+connection_strings*
+
+# SSL/TLS Certificates (except public certs in resources)
+*.crt
+*.cer
+*.ca-bundle
+*.ca-cert
+
+# =============================================================================
+# 📱 iOS DEVELOPMENT FILES
+# =============================================================================
+
 # Xcode
-*.xcodeproj/xcuserdata/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
 *.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# User-specific Xcode files
+*.xcuserstate
+*.xcuserdatad/
+UserInterfaceState.xcuserstate
+xcschememanagement.plist
+
+# Xcode Workspace
 *.xcworkspace/xcuserdata/
-build/
+
+# CocoaPods
+Pods/
+*.podspec
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Swift Package Manager
+.build/
+Package.resolved
+*.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+
+# FastLane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/.env*
+
+# Provisioning profiles
+*.mobileprovision
+*.provisionprofile
+
+# App Store Connect API Keys
+AuthKey_*.p8
+api_key.json
+
+# =============================================================================
+# 🔧 BUILD AND DEPLOYMENT FILES
+# =============================================================================
+
+# Build outputs
 DerivedData/
+build/
+*.ipa
+*.app
+*.dSYM.zip
+*.dSYM/
 
-# macOS
-.DS_Store
+# Archives
+*.xcarchive/
 
-# Personal files
+# Swift compilation files
+*.swiftdeps
+
+# =============================================================================
+# 📊 TESTING AND COVERAGE
+# =============================================================================
+
+# Test results
+test_output/
+*.coverage
+*.lcov
+coverage/
+.coverage
+htmlcov/
+
+# Performance testing
+*.trace
+
+# =============================================================================
+# 🛠️ DEVELOPMENT TOOLS
+# =============================================================================
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
 *.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
 *.tmp
+*.temp
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =============================================================================
+# 🔐 SECURITY AUDIT AND MONITORING
+# =============================================================================
+
+# Security scan results (keep templates, ignore actual results)
+security-audit-report.json
+security-scan-*.json
+vulnerability-*.json
+*.sarif
+
+# Backup files that might contain sensitive data
+*.bak
+*.backup
+*.old
+
+# =============================================================================
+# 🌐 NETWORKING AND CERTIFICATES
+# =============================================================================
+
+# Network configuration
+network_config.json
+proxy_config.*
+
+# Charles Proxy
+*.chlsj
+
+# =============================================================================
+# 📚 DOCUMENTATION (Generated)
+# =============================================================================
+
+# Generated documentation
+docs/generated/
+*.docset/
+
+# =============================================================================
+# 🎯 PROJECT SPECIFIC EXCLUSIONS
+# =============================================================================
+
+# StarkPay specific sensitive files
+starknet_private_keys/
+wallet_backups/
+user_data/
+transaction_logs/
+
+# Local development overrides
+local_config.*
+dev_secrets.*
+test_keys.*
+
+# =============================================================================
+# ✅ ALLOWED FILES (Comments for clarity)
+# =============================================================================
+
+# These files ARE committed and are safe:
+# - Source code files (.swift, .m, .h)
+# - Public certificates in resources
+# - Configuration templates
+# - Documentation
+# - Tests (without real credentials)
+# - README files
+# - This .gitignore file
+
+# =============================================================================
+# 🚨 SECURITY REMINDER
+# =============================================================================
+
+# If you accidentally commit sensitive information:
+# 1. Remove it immediately from the repository
+# 2. Change all compromised credentials
+# 3. Use `git filter-branch` or BFG Repo-Cleaner to remove from history
+# 4. Audit all systems that had access to the compromised credentials
+
+# Always use tools like git-secrets or similar to prevent accidental commits
+# Run security scans before each commit using pre-commit hooks

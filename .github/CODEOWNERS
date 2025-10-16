@@ -1,0 +1,32 @@
+# StarkPay iOS Code Owners
+
+# Global ownership
+* @starkpay-team
+
+# iOS App specific
+/StarkPayiOS/ @ios-team @security-team
+
+# CI/CD Pipeline
+/.github/ @devops-team @security-team
+
+# Documentation
+/docs/ @technical-writers @ios-team
+
+# Security sensitive files
+.github/workflows/ @security-team @devops-team
+*.xcodeproj @ios-team @build-engineers
+
+# Configuration files
+*.plist @ios-team @configuration-managers
+*.yml @devops-team
+*.yaml @devops-team
+
+# Swift source code
+*.swift @ios-team @code-reviewers
+
+# Assets and resources
+/StarkPayiOS/StarkPayiOS/Assets.xcassets/ @design-team @ios-team
+
+# Release and deployment
+CHANGELOG.md @release-managers @ios-team
+README.md @technical-writers @ios-team
