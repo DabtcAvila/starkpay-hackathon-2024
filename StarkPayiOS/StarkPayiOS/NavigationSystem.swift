@@ -764,13 +764,246 @@ struct CustomBackButton: View {
 class AnalyticsManager {
     static let shared = AnalyticsManager()
     
-    private init() {}
+    private var eventQueue: [(event: String, properties: [String: Any], timestamp: Date)] = []
+    private var userSession: UserSession
+    private var isTrackingEnabled = true
+    
+    struct UserSession {
+        let sessionId: String
+        let startTime: Date
+        var screenViews: Int = 0
+        var userInteractions: Int = 0
+        var errors: Int = 0
+        var paymentAttempts: Int = 0
+        var biometricAuthentications: Int = 0
+        
+        init() {
+            self.sessionId = UUID().uuidString
+            self.startTime = Date()
+        }
+    }
+    
+    private init() {
+        self.userSession = UserSession()
+        setupAnalytics()
+    }
+    
+    private func setupAnalytics() {
+        // Track app launch
+        trackAppEvent(.appLaunched, properties: [
+            "session_id": userSession.sessionId,
+            "launch_time": userSession.startTime.timeIntervalSince1970,
+            "app_version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"
+        ])
+        
+        // Setup session timeout monitoring
+        setupSessionMonitoring()
+    }
     
     func track(_ event: String, properties: [String: Any] = [:]) {
-        // Implement analytics tracking
+        guard isTrackingEnabled else { return }
+        
+        let enrichedProperties = enrichProperties(properties)
+        let timestamp = Date()
+        
+        // Add to queue for batch processing
+        eventQueue.append((event: event, properties: enrichedProperties, timestamp: timestamp))
+        
+        // Process specific event types
+        processSpecialEvents(event, properties: enrichedProperties)
+        
         #if DEBUG
-        print("Analytics: \(event) - \(properties)")
+        print("📊 Analytics: \(event)")
+        if !enrichedProperties.isEmpty {
+            print("   Properties: \(enrichedProperties)")
+        }
         #endif
+        
+        // Simulate sending to analytics service
+        sendToAnalyticsService(event: event, properties: enrichedProperties, timestamp: timestamp)
+    }
+    
+    private func enrichProperties(_ properties: [String: Any]) -> [String: Any] {
+        var enriched = properties
+        enriched["session_id"] = userSession.sessionId
+        enriched["timestamp"] = Date().timeIntervalSince1970
+        enriched["platform"] = "iOS"
+        enriched["device_model"] = UIDevice.current.model
+        enriched["ios_version"] = UIDevice.current.systemVersion
+        enriched["app_build"] = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "unknown"
+        return enriched
+    }
+    
+    private func processSpecialEvents(_ event: String, properties: [String: Any]) {
+        switch event {
+        case "screen_view":
+            userSession.screenViews += 1
+        case "user_interaction":
+            userSession.userInteractions += 1
+        case "app_error", "performance_issue":
+            userSession.errors += 1
+        case "payment_initiated", "payment_completed":
+            userSession.paymentAttempts += 1
+        case "biometric_auth_success", "biometric_auth_failed":
+            userSession.biometricAuthentications += 1
+        default:
+            break
+        }
+    }
+    
+    private func sendToAnalyticsService(event: String, properties: [String: Any], timestamp: Date) {
+        // Simulate real analytics service integration
+        // In production, this would send to Firebase, Mixpanel, etc.
+        
+        let analyticsPayload: [String: Any] = [
+            "event": event,
+            "properties": properties,
+            "timestamp": timestamp.timeIntervalSince1970,
+            "session_id": userSession.sessionId
+        ]
+        
+        // Simulate network call (would be actual HTTP request in production)
+        DispatchQueue.global().async {
+            // Simulate network delay
+            Thread.sleep(forTimeInterval: 0.1)
+            
+            #if DEBUG
+            print("📤 Sent to analytics service: \(event)")
+            #endif
+        }
+    }
+    
+    private func setupSessionMonitoring() {
+        // Monitor app lifecycle for session tracking
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.willResignActiveNotification,
+            object: nil,
+            queue: .main
+        ) { _ in
+            self.trackAppEvent(.appBackgrounded)
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.didBecomeActiveNotification,
+            object: nil,
+            queue: .main
+        ) { _ in
+            self.trackAppEvent(.appForegrounded)
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.willTerminateNotification,
+            object: nil,
+            queue: .main
+        ) { _ in
+            self.endSession()
+        }
+    }
+    
+    // MARK: - Specific Event Tracking Methods
+    
+    enum AppEvent: String {
+        case appLaunched = "app_launched"
+        case appBackgrounded = "app_backgrounded" 
+        case appForegrounded = "app_foregrounded"
+        case sessionEnded = "session_ended"
+    }
+    
+    func trackAppEvent(_ event: AppEvent, properties: [String: Any] = [:]) {
+        track(event.rawValue, properties: properties)
+    }
+    
+    func trackScreenView(_ screenName: String, properties: [String: Any] = [:]) {
+        var props = properties
+        props["screen_name"] = screenName
+        props["session_duration"] = Date().timeIntervalSince(userSession.startTime)
+        track("screen_view", properties: props)
+    }
+    
+    func trackUserAction(_ action: String, properties: [String: Any] = [:]) {
+        var props = properties
+        props["action"] = action
+        track("user_interaction", properties: props)
+    }
+    
+    func trackPaymentFlow(_ step: String, amount: Double? = nil, currency: String = "USD") {
+        var props: [String: Any] = ["payment_step": step, "currency": currency]
+        if let amount = amount {
+            props["amount"] = amount
+        }
+        track("payment_flow", properties: props)
+    }
+    
+    func trackBiometricAuth(success: Bool, authType: String) {
+        let event = success ? "biometric_auth_success" : "biometric_auth_failed"
+        track(event, properties: [
+            "auth_type": authType,
+            "attempt_count": userSession.biometricAuthentications + 1
+        ])
+    }
+    
+    func trackError(_ error: Error, context: String) {
+        track("app_error", properties: [
+            "error_description": error.localizedDescription,
+            "error_domain": (error as NSError).domain,
+            "error_code": (error as NSError).code,
+            "context": context
+        ])
+    }
+    
+    func trackPerformanceMetric(_ metric: String, value: Double, unit: String) {
+        track("performance_metric", properties: [
+            "metric_name": metric,
+            "value": value,
+            "unit": unit
+        ])
+    }
+    
+    // MARK: - Session Management
+    
+    func endSession() {
+        let sessionDuration = Date().timeIntervalSince(userSession.startTime)
+        
+        track("session_ended", properties: [
+            "session_duration": sessionDuration,
+            "screen_views": userSession.screenViews,
+            "user_interactions": userSession.userInteractions,
+            "errors": userSession.errors,
+            "payment_attempts": userSession.paymentAttempts,
+            "biometric_authentications": userSession.biometricAuthentications,
+            "events_tracked": eventQueue.count
+        ])
+        
+        // Flush remaining events
+        flushEventQueue()
+    }
+    
+    private func flushEventQueue() {
+        // In production, this would batch send all queued events
+        #if DEBUG
+        print("📊 Flushing \(eventQueue.count) analytics events")
+        #endif
+        eventQueue.removeAll()
+    }
+    
+    // MARK: - Configuration
+    
+    func enableTracking(_ enabled: Bool) {
+        isTrackingEnabled = enabled
+        track("analytics_tracking_changed", properties: ["enabled": enabled])
+    }
+    
+    func getSessionMetrics() -> [String: Any] {
+        return [
+            "session_id": userSession.sessionId,
+            "session_duration": Date().timeIntervalSince(userSession.startTime),
+            "screen_views": userSession.screenViews,
+            "user_interactions": userSession.userInteractions,
+            "errors": userSession.errors,
+            "payment_attempts": userSession.paymentAttempts,
+            "biometric_authentications": userSession.biometricAuthentications,
+            "events_queued": eventQueue.count
+        ]
     }
 }
 

@@ -1,0 +1,7 @@
+Contact: mailto:security@starkpay.com
+Contact: https://github.com/DabtcAvila/starkpay-hackathon-2024/security
+Expires: 2025-12-31T23:59:59.000Z
+Acknowledgments: https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/SECURITY.md
+Preferred-Languages: en, es
+Canonical: https://starkpay.com/.well-known/security.txt
+Policy: https://github.com/DabtcAvila/starkpay-hackathon-2024/blob/main/SECURITY.md
